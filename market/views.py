@@ -25,3 +25,10 @@ class LoginView(TemplateView):
 class ProductDetailView(TemplateView):
     template_name = 'product-detail.html'
 
+
+class ProductListView(TemplateView):
+    template_name = 'product-list.html'
+
+
+class ShoppingCartView(TemplateView):
+    template_name = 'shopping-cart.html'
