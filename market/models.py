@@ -2,6 +2,8 @@ from django.core.validators import MaxValueValidator
 from django.core.validators import MinValueValidator
 from django.db import models
 
+from users.models import CustomUser
+
 
 class ProductCategory(models.Model):
     name = models.CharField(max_length=100, unique=True)
@@ -32,6 +34,13 @@ class Product(models.Model):
         verbose_name_plural = 'Товары'
         verbose_name = 'Товар'
 
+    def get_price_with_sales(self):
+
+        if self.sales_percent == 0 or self.sales_percent == None:
+            return self.price
+        else:
+            return int((self.price / 100) * (100 - self.sales_percent))
+
     def __str__(self):
         return self.name
 
@@ -46,7 +55,6 @@ class ProductGallery(models.Model):
 
 
 class ProductRating(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='ratings')
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     stars = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
-
-

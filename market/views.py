@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-
+import datetime
 from market.models import Product
 
 
@@ -36,6 +36,14 @@ class ProductDetailView(TemplateView):
 
 class ProductListView(TemplateView):
     template_name = 'product-list.html'
+
+    def get_context_data(self, **kwargs):
+
+        context = {
+            'Product_list': Product.objects.all(),
+            'now': datetime.datetime.now().date()
+        }
+        return context
 
 
 class ShoppingCartView(TemplateView):

@@ -346,7 +346,7 @@
                                                 <div class="product_desc_info">
                                                     <div class="product-review">
                                                         <h5 class="manufacturer">
-                                                            <a href="shop-left-sidebar.html">Graphic Corner</a>
+                                                            <a href="shop-left-sidebar.html">{{ item.category.name}}</a>
                                                         </h5>
                                                         <div class="rating-box">
                                                             <ul class="rating">
@@ -360,7 +360,7 @@
                                                     </div>
                                                     <h4><a class="product_name" href="single-product.html">{{item.name}}</a></h4>
                                                     <div class="price-box">
-                                                        <span class="new-price">$46.80</span>
+                                                        <span class="new-price">{{item.get_price_with_sales}}сом</span>
                                                     </div>
                                                 </div>
                                                 <div class="add-actions">
