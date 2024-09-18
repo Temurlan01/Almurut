@@ -164,7 +164,7 @@
                 <!-- Header Bottom Area End Here -->
                 <!-- Begin Mobile Menu Area -->
                 <div class="mobile-menu-area d-lg-none d-xl-none col-12">
-                    <div class="container"> 
+                    <div class="container">
                         <div class="row">
                             <div class="mobile-menu">
                             </div>
@@ -195,31 +195,13 @@
                             <div class="product-details-left">
                                 <div class="product-details-images slider-navigation-1">
                                     <div class="lg-image">
-                                        <img src="{% static 'images/product/large-size/1.jpg' %}" alt="product image">
+                                        <img src="{{ product.preview_image.url }}" alt="product image">
                                     </div>
-                                    <div class="lg-image">
-                                        <img src="{% static 'images/product/large-size/2.jpg' %}" alt="product image">
-                                    </div>
-                                    <div class="lg-image">
-                                        <img src="{% static 'images/product/large-size/3.jpg' %}" alt="product image">
-                                    </div>
-                                    <div class="lg-image">
-                                        <img src="{% static 'images/product/large-size/4.jpg' %}" alt="product image">
-                                    </div>
-                                    <div class="lg-image">
-                                        <img src="{% static 'images/product/large-size/5.jpg' %}" alt="product image">
-                                    </div>
-                                    <div class="lg-image">
-                                        <img src="{% static 'images/product/large-size/6.jpg' %}" alt="product image">
-                                    </div>
+
                                 </div>
                                 <div class="product-details-thumbs slider-thumbs-1">
-                                    <div class="sm-image"><img src="{% static 'images/product/small-size/1.jpg' %}" alt="product image thumb"></div>
-                                    <div class="sm-image"><img src="{% static 'images/product/small-size/2.jpg' %}" alt="product image thumb"></div>
-                                    <div class="sm-image"><img src="{% static 'images/product/small-size/3.jpg' %}" alt="product image thumb"></div>
-                                    <div class="sm-image"><img src="{% static 'images/product/small-size/4.jpg' %}" alt="product image thumb"></div>
-                                    <div class="sm-image"><img src="{% static 'images/product/small-size/5.jpg' %}" alt="product image thumb"></div>
-                                    <div class="sm-image"><img src="{% static 'images/product/small-size/6.jpg' %}" alt="product image thumb"></div>
+                                    <div class="sm-image"><img src="images/product/small-size/1.jpg" alt="product image thumb"></div>
+
                                 </div>
                             </div>
                             <!--// Product Details Left -->
@@ -228,8 +210,8 @@
                         <div class="col-lg-7 col-md-6">
                             <div class="product-details-view-content sp-normal-content pt-60">
                                 <div class="product-info">
-                                    <h2>Today is a good day Framed poster</h2>
-                                    <span class="product-details-ref">Reference: demo_15</span>
+                                    <h2>{{product.name}}</h2>
+                                    <span class="product-details-ref">Категория: {{ product.category.name }}</span>
                                     <div class="rating-box pt-20">
                                         <ul class="rating rating-with-review-item">
                                             <li><i class="fa fa-star-o"></i></li>
@@ -275,7 +257,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -290,7 +272,7 @@
                                    <li><a class="active" data-toggle="tab" href="#description"><span>Description</span></a></li>
                                    <li><a data-toggle="tab" href="#product-details"><span>Product Details</span></a></li>
                                    <li><a data-toggle="tab" href="#reviews"><span>Reviews</span></a></li>
-                                </ul>               
+                                </ul>
                             </div>
                             <!-- Begin Li's Tab Menu Content Area -->
                         </div>
@@ -402,7 +384,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>   
+                                    </div>
                                     <!-- Quick View | Modal Area End Here -->
                                 </div>
                             </div>
@@ -718,7 +700,7 @@
                                                 <img src="images/product/large-size/6.jpg" alt="product image">
                                             </div>
                                         </div>
-                                        <div class="product-details-thumbs slider-thumbs-1">                                        
+                                        <div class="product-details-thumbs slider-thumbs-1">
                                             <div class="sm-image"><img src="images/product/small-size/1.jpg" alt="product image thumb"></div>
                                             <div class="sm-image"><img src="images/product/small-size/2.jpg" alt="product image thumb"></div>
                                             <div class="sm-image"><img src="images/product/small-size/3.jpg" alt="product image thumb"></div>
@@ -796,7 +778,7 @@
                         </div>
                     </div>
                 </div>
-            </div>   
+            </div>
             <!-- Quick View | Modal Area End Here -->
         </div>
     </body>

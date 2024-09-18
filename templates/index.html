@@ -340,7 +340,9 @@
                                                 <a href="single-product.html">
                                                     <img src="{{item.preview_image.url }}" alt="Li's Product Image">
                                                 </a>
-                                                <span class="sticker">New</span>
+                                                {% if now < item.new_expiry_date %}
+                                                                <span class="sticker">New</span>
+                                                            {% endif %}
                                             </div>
                                             <div class="product_desc">
                                                 <div class="product_desc_info">

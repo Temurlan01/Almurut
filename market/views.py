@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 import datetime
+from django.http import Http404
 from market.models import Product
 
 
@@ -32,6 +33,17 @@ class LoginView(TemplateView):
 
 class ProductDetailView(TemplateView):
     template_name = 'product-detail.html'
+
+    def get_context_deta(self, **kwargs):
+        try:
+            product = Product.objects.get(id=kwargs['pk'])
+        except Product.DoesNotExist:
+            raise Http404
+
+        context = {
+            'product': product
+        }
+        return context
 
 
 class ProductListView(TemplateView):

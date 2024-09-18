@@ -17,7 +17,7 @@ urlpatterns = [
     path('Error/', ErrorView.as_view()),
     path('Favorites/', FavoritesView.as_view()),
     path('login/', UserLoginView.as_view()),
-    path('ProductDetail/', ProductDetailView.as_view()),
+    path('ProductDetail/<int:pk>/', ProductDetailView.as_view(), name='product-detail-url'),
     path('ProductList/', ProductListView.as_view(), name='Shop-url'),
     path('ShoppingCart/', ShoppingCartView.as_view()),
     path('registration/', UserRegisterView.as_view(), name='registration-url'),
