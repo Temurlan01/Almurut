@@ -179,7 +179,7 @@
                 <div class="container">
                     <div class="breadcrumb-content">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="{% url 'Home-url' %}">Home</a></li>
                             <li class="active">Single Product Normal</li>
                         </ul>
                     </div>
@@ -224,11 +224,11 @@
                                         </ul>
                                     </div>
                                     <div class="price-box pt-20">
-                                        <span class="new-price new-price-2">$57.98</span>
+                                        <span class="new-price new-price-2">{{product.get_price_with_sales}}сом</span>
                                     </div>
                                     <div class="product-desc">
                                         <p>
-                                            <span>100% cotton double printed dress. Black and white striped top and orange high waisted skater skirt bottom. Lorem ipsum dolor sit amet, consectetur adipisicing elit. quibusdam corporis, earum facilis et nostrum dolorum accusamus similique eveniet quia pariatur.
+                                            <span> {{ product.description}}
                                             </span>
                                         </p>
                                     </div>

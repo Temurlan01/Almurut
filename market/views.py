@@ -34,7 +34,7 @@ class LoginView(TemplateView):
 class ProductDetailView(TemplateView):
     template_name = 'product-detail.html'
 
-    def get_context_deta(self, **kwargs):
+    def get_context_data(self, **kwargs):
         try:
             product = Product.objects.get(id=kwargs['pk'])
         except Product.DoesNotExist:
