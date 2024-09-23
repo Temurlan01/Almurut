@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.utils.html import format_html
 
-from market.models import ProductCategory, Product,ProductGallery
+from market.models import ProductCategory, Product,ProductGallery, ProductRating
+
 
 
 
@@ -27,6 +28,10 @@ class ProductAdmin(admin.ModelAdmin):
 
     image_tag.short_description = 'Image'
 
+
+@admin.register(ProductRating)
+class ProductRatingAdmin(admin.ModelAdmin):
+    list_display = ('user', 'product', 'stars')
 
 
 

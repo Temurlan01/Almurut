@@ -1,6 +1,6 @@
 from django.core.validators import MaxValueValidator
 from django.core.validators import MinValueValidator
-from django.db import models
+from django.db import models, transaction
 
 from users.models import CustomUser
 
@@ -55,6 +55,16 @@ class ProductGallery(models.Model):
 
 
 class ProductRating(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     stars = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+
+    your_review = models.TextField(null=True)
+    name = models.CharField(max_length=100, null=True)
+    Email = models.EmailField(unique=True, null=True, blank=True)
+
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True)
+
+    class Meta:
+        unique_together = ('user', 'product',)

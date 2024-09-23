@@ -1,8 +1,10 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from django.views.generic import TemplateView
+from django.views import View
 import datetime
 from django.http import Http404
-from market.models import Product
+from market.models import Product, ProductRating, ProductGallery
 
 
 class HomeView(TemplateView):
@@ -41,7 +43,8 @@ class ProductDetailView(TemplateView):
             raise Http404
 
         context = {
-            'product': product
+            'product': product,
+
         }
         return context
 
@@ -60,3 +63,29 @@ class ProductListView(TemplateView):
 
 class ShoppingCartView(TemplateView):
     template_name = 'shopping-cart.html'
+
+
+class SendProductFeedbackView(View):
+
+    def post(self, request, *args, **kwargs):
+        data = request.POST
+        rating_value = data['rating_value']
+        comment = data['comment']
+        name = data['name']
+        email = data['email']
+
+        product = Product.objects.get(id=kwargs['pk'])
+        user = request.user
+        if user.is_authenticated:
+
+            ProductRating.objects.create(
+                stars=rating_value,
+                your_review=comment,
+                name=name,
+                Email=email,
+                product=product,
+                user=user,
+            )
+            return redirect('product-detail-url', pk=product.id )
+        else:
+            return redirect('/login/')
