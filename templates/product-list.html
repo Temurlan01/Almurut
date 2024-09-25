@@ -243,7 +243,7 @@
                                                     <!-- single-product-wrap start -->
                                                     <div class="single-product-wrap">
                                                         <div class="product-image">
-                                                            <a href="single-product.html">
+                                                            <a href="{% url 'product-detail-url' item.id %}">
                                                                 <img src="{{item.preview_image.url }}" alt="Li's Product Image">
                                                             </a>
                                                             {% if now < item.new_expiry_date %}

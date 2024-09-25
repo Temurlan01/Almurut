@@ -41,9 +41,18 @@ class ProductDetailView(TemplateView):
             product = Product.objects.get(id=kwargs['pk'])
         except Product.DoesNotExist:
             raise Http404
-
+        product_category = product.category
+        category_other_product_list = (
+            Product.objects
+            .filter(category=product_category)
+            .exclude(id=product.id)
+        )
         context = {
             'product': product,
+            'other_products': category_other_product_list,
+            'other_products_len': len(category_other_product_list)
+
+
 
         }
         return context
