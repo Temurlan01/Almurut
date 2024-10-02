@@ -2,7 +2,7 @@ from django.core.validators import MaxValueValidator
 from django.core.validators import MinValueValidator
 from django.db import models, transaction
 
-from users.models import CustomUser
+
 
 
 class ProductCategory(models.Model):
@@ -30,6 +30,7 @@ class Product(models.Model):
     preview_image = models.ImageField(upload_to='products_preview_images/')
     new_expiry_date = models.DateField()
 
+
     class Meta:
         verbose_name_plural = 'Товары'
         verbose_name = 'Товар'
@@ -55,6 +56,7 @@ class ProductGallery(models.Model):
 
 
 class ProductRating(models.Model):
+    from users.models import CustomUser
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     stars = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
@@ -68,3 +70,6 @@ class ProductRating(models.Model):
 
     class Meta:
         unique_together = ('user', 'product',)
+
+
+

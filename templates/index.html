@@ -148,7 +148,7 @@
                                     <ul class="hm-menu">
                                         <!-- Begin Header Middle Wishlist Area -->
                                         <li class="hm-wishlist">
-                                            <a href="favorites.html">
+                                            <a href="{% url 'Favorites-url' %}">
                                                 <span class="cart-item-count wishlist-item-count">0</span>
                                                 <i class="fa fa-heart-o"></i>
                                             </a>
@@ -368,7 +368,7 @@
                                                 <div class="add-actions">
                                                     <ul class="add-actions-link">
                                                         <li class="add-cart active"><a href="{% url 'ShoppingCart-url'  %}">Add to cart</a></li>
-                                                        <li><a class="links-details" href="{% url 'favorites-url' %}"><i class="fa fa-heart-o"></i></a></li>
+                                                        <li><a class="links-details" href="{% url 'Favorites-url' %}"><i class="fa fa-heart-o"></i></a></li>
                                                         <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
                                                     </ul>
                                                 </div>
@@ -431,7 +431,7 @@
                                         <div class="single-product-wrap">
                                             <div class="product-image">
                                                 <a href="single-product.html">
-                                                    <img src="images/product/large-size/11.jpg" alt="Li's Product Image">
+                                                    <img src="{% static 'images/product/large-size/11.jpg' %}" alt="Li's Product Image">
                                                 </a>
                                                 <span class="sticker">New</span>
                                             </div>
@@ -474,7 +474,7 @@
                                         <div class="single-product-wrap">
                                             <div class="product-image">
                                                 <a href="single-product.html">
-                                                    <img src="images/product/large-size/10.jpg" alt="Li's Product Image">
+                                                    <img src="{% static 'images/product/large-size/10.jpg' %}" alt="Li's Product Image">
                                                 </a>
                                                 <span class="sticker">New</span>
                                             </div>
@@ -515,7 +515,7 @@
                                         <div class="single-product-wrap">
                                             <div class="product-image">
                                                 <a href="single-product.html">
-                                                    <img src="images/product/large-size/9.jpg" alt="Li's Product Image">
+                                                    <img src="{% static 'images/product/large-size/9.jpg' %}" alt="Li's Product Image">
                                                 </a>
                                                 <span class="sticker">New</span>
                                             </div>
@@ -558,7 +558,7 @@
                                         <div class="single-product-wrap">
                                             <div class="product-image">
                                                 <a href="single-product.html">
-                                                    <img src="images/product/large-size/8.jpg" alt="Li's Product Image">
+                                                    <img src="{% static 'images/product/large-size/8.jpg' %}" alt="Li's Product Image">
                                                 </a>
                                                 <span class="sticker">New</span>
                                             </div>

@@ -27,7 +27,34 @@ class ErrorView(TemplateView):
 
 class FavoritesView(TemplateView):
     template_name = 'favorites.html'
+    def get_context_data(self, **kwargs):
+        user = self.request.user
 
+        context = {
+            'my_favorite_products': user.favorites_product.all()
+        }
+        return context
+
+class AddProductToFavorite(TemplateView):
+    template_name = 'favorites.html'
+    def get_context_data(self, **kwargs):
+        user = self.request.user
+
+
+        product_id = kwargs['pk']
+
+        try:
+            product = Product.objects.get(id=product_id)
+        except Product.DoesNotExist:
+            raise Http404
+
+        user.favorites_product.add(product)
+        user.save()
+
+        context = {
+            'my_favorite_products': user.favorites_product.all()
+        }
+        return context
 
 class LoginView(TemplateView):
     template_name = 'login.html'

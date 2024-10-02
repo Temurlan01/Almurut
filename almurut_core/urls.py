@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.urls import path
 
 from market.views import HomeView, FaqView, ErrorView, FavoritesView, \
-     ProductDetailView, ProductListView, ShoppingCartView, SendProductFeedbackView
+     ProductDetailView, ProductListView, ShoppingCartView, SendProductFeedbackView, AddProductToFavorite
 
 from users.views import UserRegisterView, UserMakeRegisterView, \
     UserLoginView, UserMakeLoginView
@@ -15,7 +15,9 @@ urlpatterns = [
     path('Home/', HomeView.as_view(), name='Home-url'),
     path('Faq/', FaqView.as_view(), name='Faq-url'),
     path('Error/', ErrorView.as_view()),
-    path('Favorites/', FavoritesView.as_view(), name='favorites-url'),
+
+    path('Favorites/', FavoritesView.as_view(), name='Favorites-url'),
+    path('add-product-to-favorites/<int:pk>/', AddProductToFavorite.as_view(), name='add-product-to-favorites'),
 
     path('login/', UserLoginView.as_view()),
     path('registration/', UserRegisterView.as_view(), name='registration-url'),
