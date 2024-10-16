@@ -57,7 +57,7 @@
                             <!-- Begin Header Logo Area -->
                             <div class="col-lg-3">
                                 <div class="logo pb-sm-30 pb-xs-30">
-                                    <a href="index.html">
+                                    <a href="{% url 'Home-url' %}">
                                         <img src="{% static 'images/menu/logo/almurut-crop.png' %}" alt="">
                                     </a>
                                 </div>
@@ -77,7 +77,7 @@
                                     <ul class="hm-menu">
                                         <!-- Begin Header Middle Wishlist Area -->
                                         <li class="hm-wishlist">
-                                            <a href="favorites.html">
+                                            <a href="{% url 'Favorites-url' %}">
                                                 <span class="cart-item-count wishlist-item-count">0</span>
                                                 <i class="fa fa-heart-o"></i>
                                             </a>
@@ -447,7 +447,7 @@
                                                     <ul class="add-actions-link">
                                                         <li class="add-cart active"><a href="#">Add to cart</a></li>
                                                         <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
-                                                        <li><a class="links-details" href="favorites.html"><i class="fa fa-heart-o"></i></a></li>
+                                                        <li><a class="links-details" href="{% url 'add-product-to-favorites' item.id %}"><i class="fa fa-heart-o"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>

@@ -37,7 +37,7 @@ class Product(models.Model):
 
     def get_price_with_sales(self):
 
-        if self.sales_percent == 0 or self.sales_percent == None:
+        if self.sales_percent == 0 or self.sales_percent is None:
             return self.price
         else:
             return int((self.price / 100) * (100 - self.sales_percent))

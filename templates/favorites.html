@@ -202,9 +202,9 @@
                                                 <th class="li-product-price">Unit Price</th>
                                                 <th class="li-product-add-cart">add to cart</th>
                                             </tr>
-                                        </thead>{% for item in my_favorite_products %}
+                                        </thead>
                                         <tbody>
-
+                                            {% for item in my_favorite_products %}
                                             <tr>
                                                 <td class="li-product-remove"><a href="{% url 'delete-product-to-favorites' item.id%}"><i class="fa fa-times"></i></a></td>
                                                 <td class="li-product-thumbnail"><a href="{% url 'product-detail-url' item.id %}"><img src="{{item.preview_image.url}}" alt=""></a></td>
@@ -212,10 +212,10 @@
                                                 <td class="li-product-price"><span class="amount">{{item.get_price_with_sales}} сом</span></td>
                                                 <td class="li-product-add-cart"><a href="#">add to cart</a></td>
                                             </tr>
-
+                                            {% endfor %}
 
                                         </tbody>
-                                        {% endfor %}
+
                                     </table>
                                 </div>
                             </form>
